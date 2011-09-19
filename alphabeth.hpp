@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 class Alphabeth {
     private:
@@ -8,11 +9,11 @@ class Alphabeth {
         char NEUTRAL;
     
     public:
-        Alphabeth() : 
+        Alphabeth(std::string res = "") : 
             l_length( LETTERS.length() ),
             LETTERS( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ),   /* 52 letters with neutral: base 52 */
             NEUTRAL( LETTERS.at(0) ),
-            result( "" )
+            result( res )
             { }
         std::string add(std::string left,  std::string right);
         std:: string add(std::string left);
@@ -24,5 +25,20 @@ class Alphabeth {
         Alphabeth operator+( Alphabeth& right);
         std::string operator=(const std::string right);
         Alphabeth& operator=(const Alphabeth& right);
+};
+
+class AFibonacci : Alphabeth {
+    private:
+        typedef std::vector<Alphabeth> Fibo;
+        int NO;
+        Alphabeth f1, f2;
+        Fibo fibonacci;
+    
+    public:
+        AFibonacci(int no) : NO(no), f1("b"), f2("b") { 
+            fibonacci.push_back(f1);
+            fibonacci.push_back(f2);
+        }
+        std::string getFibonacci();
 };
  

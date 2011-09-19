@@ -70,5 +70,9 @@ std::string Alphabeth::operator=(const std::string right) {
 Alphabeth& Alphabeth::operator=(const Alphabeth& right) {
     result = right.result;
     return *this;
-}
+} 
     
+/* AFibonacci */
+std::string AFibonacci::getFibonacci(){
+    
+}
