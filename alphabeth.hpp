@@ -27,7 +27,7 @@ class Alphabeth {
         Alphabeth& operator=(const Alphabeth& right);
 };
 
-class AFibonacci : Alphabeth {
+class AFibonacci {
     private:
         typedef std::vector<Alphabeth> Fibo;
         int NO;
