@@ -5,7 +5,7 @@ std::string Alphabeth::getResult() {
     return this->result;
 }
 
-void Alphabeth::add( std::string left, std::string right ) {
+std::string Alphabeth::add( std::string left, std::string right ) {
     result = "";
     char chl, chr, res;
     int sum, CARRY = 0;
@@ -13,7 +13,7 @@ void Alphabeth::add( std::string left, std::string right ) {
     std::string::iterator itr = right.end();
 
     if( left.length() == 0 || right.length() == 0 )
-        throw -1;
+        throw "Cannot add empty strings.";
 
     /* Add two strings to each other and store the result
        in this->result */
@@ -30,14 +30,7 @@ void Alphabeth::add( std::string left, std::string right ) {
 
         sum = LETTERS.find(chl) + LETTERS.find(chr);
         res = LETTERS.at( sum % l_length + CARRY);
-
-        /* Print out debug info */
-        // std::cout << chl << " + " << chr << " = " << sum << " | " << sum % l_length + CARRY << " = " << res << std::endl;
-
-        if ( sum >= l_length )
-            CARRY = 1;
-        else
-            CARRY = 0;
+        sum >= l_length ? CARRY = 1 : CARRY = 0;
 
         result.insert(result.begin(), res );
     }
@@ -46,4 +39,5 @@ void Alphabeth::add( std::string left, std::string right ) {
     while( result.at(0) == 'a' )
         result.erase(result.begin());
 
+    return result;
 }

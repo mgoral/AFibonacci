@@ -14,6 +14,7 @@ class Alphabeth {
             NEUTRAL( LETTERS.at(0) ),
             result( "" )
             { }
-        void add( std::string left, std::string right);
+        std::string add( std::string left, std::string right);
         std::string getResult();
 };
+    
