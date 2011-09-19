@@ -5,8 +5,14 @@ std::string Alphabeth::getResult() {
     return this->result;
 }
 
-std::string Alphabeth::add( std::string left, std::string right ) {
-    result = "";
+Alphabeth& Alphabeth::setResult(std::string res) {
+    this->result = res;
+    return *this;
+}
+
+/* new_result = left + right */
+std::string Alphabeth::add( std::string left,  std::string right ) {
+    std::string new_result = "";
     char chl, chr, res;
     int sum, CARRY = 0;
     std::string::iterator itl = left.end();
@@ -15,8 +21,7 @@ std::string Alphabeth::add( std::string left, std::string right ) {
     if( left.length() == 0 || right.length() == 0 )
         throw "Cannot add empty strings.";
 
-    /* Add two strings to each other and store the result
-       in this->result */
+    /* Add two strings to each other and without storing */
     while( itl > left.begin() || itr > right.begin() || CARRY == 1) {
         --itl; --itr;
         
@@ -32,12 +37,38 @@ std::string Alphabeth::add( std::string left, std::string right ) {
         res = LETTERS.at( sum % l_length + CARRY);
         sum >= l_length ? CARRY = 1 : CARRY = 0;
 
-        result.insert(result.begin(), res );
+        new_result.insert(new_result.begin(), res );
     }
 
     /* Remove a's from the beginning */
-    while( result.at(0) == 'a' )
-        result.erase(result.begin());
+    while( new_result.at(0) == 'a' )
+        new_result.erase(new_result.begin());
 
+    return new_result;
+}
+
+/* result += left */
+std::string Alphabeth::add( std::string left ) {
+    result = this->add( left, result );
     return result;
 }
+
+std::string Alphabeth::operator+(const std::string right) {
+    return this->add( result, right );
+}
+
+Alphabeth Alphabeth::operator+( Alphabeth& right) {
+    Alphabeth temp;
+    temp.setResult( this->add( result, right.result ) );
+    return temp;
+}
+
+std::string Alphabeth::operator=(const std::string right) {
+    result = right;
+    return result;
+}
+Alphabeth& Alphabeth::operator=(const Alphabeth& right) {
+    result = right.result;
+    return *this;
+}
+    

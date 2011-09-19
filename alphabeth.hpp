@@ -14,7 +14,15 @@ class Alphabeth {
             NEUTRAL( LETTERS.at(0) ),
             result( "" )
             { }
-        std::string add( std::string left, std::string right);
+        std::string add(std::string left,  std::string right);
+        std:: string add(std::string left);
+        Alphabeth& setResult(std::string res);
         std::string getResult();
+
+        /* Operator overloads */
+        std::string operator+(const std::string right);
+        Alphabeth operator+( Alphabeth& right);
+        std::string operator=(const std::string right);
+        Alphabeth& operator=(const Alphabeth& right);
 };
-    
+ 
