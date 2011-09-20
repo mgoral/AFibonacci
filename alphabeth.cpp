@@ -1,5 +1,4 @@
 #include "alphabeth.hpp"
-#include <iostream>
 
 std::string Alphabeth::getResult() {
     return this->result;
@@ -72,7 +71,3 @@ Alphabeth& Alphabeth::operator=(const Alphabeth& right) {
     return *this;
 } 
     
-/* AFibonacci */
-std::string AFibonacci::getFibonacci(){
-    
-}

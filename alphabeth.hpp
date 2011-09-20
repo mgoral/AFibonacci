@@ -1,5 +1,7 @@
+#ifndef ALPHABETH_HPP_GUARD
+#define ALPHABETH_HPP_GUARD
+
 #include <string>
-#include <vector>
 
 class Alphabeth {
     private:
@@ -27,18 +29,4 @@ class Alphabeth {
         Alphabeth& operator=(const Alphabeth& right);
 };
 
-class AFibonacci {
-    private:
-        typedef std::vector<Alphabeth> Fibo;
-        int NO;
-        Alphabeth f1, f2;
-        Fibo fibonacci;
-    
-    public:
-        AFibonacci(int no) : NO(no), f1("b"), f2("b") { 
-            fibonacci.push_back(f1);
-            fibonacci.push_back(f2);
-        }
-        std::string getFibonacci();
-};
- 
+#endif
