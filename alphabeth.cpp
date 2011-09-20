@@ -33,7 +33,7 @@ std::string Alphabeth::add( std::string left,  std::string right ) {
             chr = *itr;
 
         sum = LETTERS.find(chl) + LETTERS.find(chr);
-        res = LETTERS.at( sum % l_length + CARRY);
+        res = LETTERS.at( (sum + CARRY) % l_length );
         sum >= l_length ? CARRY = 1 : CARRY = 0;
 
         new_result.insert(new_result.begin(), res );
