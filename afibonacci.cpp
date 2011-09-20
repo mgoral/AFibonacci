@@ -1,7 +1,7 @@
 #include "afibonacci.hpp"
 
 AFibonacci::AFibonacci(int no) : NO(no) { 
-    Alphabeth f1("b"), f2("b");
+    Alphabeth f1("a"), f2("b");
     fibonacci.push_back(f1);
     fibonacci.push_back(f2);
     for(int i = 2; i < NO; i++) 
