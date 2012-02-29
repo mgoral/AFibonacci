@@ -1,4 +1,4 @@
-#ifndef iAFIBONACCI_HPP_GUARD
+#ifndef AFIBONACCI_HPP_GUARD
 #define AFIBONACCI_HPP_GUARD
 
 #include <vector>
